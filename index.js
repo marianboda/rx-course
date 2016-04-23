@@ -1,6 +1,11 @@
 'use strict'
 var Rx = require("rx")
+var fetch = require("node-fetch")
 
-var a = Rx.Observable.repeat(42,9)
+var requestStream = Rx.Observable.just('https://api.github.com/users')
+var responseStream = requestStream.flatMap(url =>
+  Rx.Observable.fromPromise(fetch(url))
+)
 
-a.subscribe(console.log)
+var bodyStream = responseStream.flatMap(res => res.json())
+bodyStream.subscribe(a => console.log(a.length))

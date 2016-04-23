@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/marianboda/rx-course/issues"
   },
-  "homepage": "https://github.com/marianboda/rx-course#readme"
+  "homepage": "https://github.com/marianboda/rx-course#readme",
+  "dependencies": {
+    "node-fetch": "^1.5.1",
+    "rx": "^4.1.0"
+  }
 }
